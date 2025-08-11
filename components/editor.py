@@ -11,7 +11,7 @@ class Editor:
             self.frame,
             wrap=tk.WORD,
             undo=True,
-            font=("Segoe UI", 12)
+            font=("Consolas", 11)
         )
         self.text.pack(fill=tk.BOTH, expand=True)
     

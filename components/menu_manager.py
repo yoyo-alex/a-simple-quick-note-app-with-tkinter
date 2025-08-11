@@ -35,31 +35,17 @@ class MenuManager:
         edit_menu.add_command(label="Paste", accelerator="Ctrl+V", command=lambda: self.app.editor.text.event_generate("<<Paste>>"))
         self.menu_bar.add_cascade(label="Edit", menu=edit_menu)
         
-    def _create_view_menu(self):   
-        """单独创建视图菜单（包含置顶选项）"""
-        # 确保应用已经完全初始化
-        if not hasattr(self.app, 'is_topmost'):
-            # 等待100ms后再次尝试创建
-            self.root.after(100, self._create_view_menu)
-            return
-            
-        view_menu = Menu(self.menu_bar, tearoff=0)
-        self.top_menu = Menu(view_menu, tearoff=0)
-        self.top_menu.add_checkbutton(
-            label="Topmost" if self.app.is_topmost.get() else "Untop",
-            variable=self.app.is_topmost,
-            command=self.app.toggle_topmost,
-            selectcolor="sky blue"
-        )
-        view_menu.add_cascade(label="View", menu=self.top_menu)
-        self.menu_bar.add_cascade(label="View", menu=view_menu) 
-        
         # 添加快捷键
         self.root.bind_all("<Control-n>", lambda e: self.app.new_file())
         self.root.bind_all("<Control-o>", lambda e: self.app.open_file())
         self.root.bind_all("<Control-s>", lambda e: self.app.save_file())
-    
-    def update_topmost_label(self, topmost):
-        """更新置顶菜单标签"""
-        if hasattr(self, 'top_menu'):
-            self.top_menu.entryconfig(0, label="Untop" if topmost else "Topmost")
+
+    def _create_view_menu(self):
+        # 视图菜单
+        view_menu = Menu(self.menu_bar, tearoff=0)    
+        view_menu.add_checkbutton(label="topmost",variable=self.app.is_topmost,command=lambda: self.app.toggle_topmost(),selectcolor="sky blue")
+        view_menu.add_command(label = "overview", command=lambda: self.app.batch_preview())
+        view_menu.add_separator
+        self.menu_bar.add_cascade(label="View", menu=view_menu)
+
+        

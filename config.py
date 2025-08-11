@@ -2,7 +2,7 @@ import os
 import json
 
 class ConfigManager:
-    CONFIG_PATH = os.path.join(os.path.expanduser("~"), ".fast_note_config.json")
+    CONFIG_PATH = os.path.join(os.getcwd(), ".fast_note_config.json")
     
     def __init__(self):
         self.config = {}

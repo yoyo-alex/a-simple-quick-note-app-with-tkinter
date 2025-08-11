@@ -1,6 +1,5 @@
 import os
 import re
-import json
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from datetime import datetime
@@ -94,7 +93,7 @@ class FileManager:
                 self.current_file = file_path
                 self.app.root.title(f"Fast Note - {os.path.basename(file_path)}")
                 self.app.editor.reset_modified()
-                self.app.status_bar.update(1, 1, len(self.app.editor.get_content())-1)
+                self.app.update_status()
                 
                 # 检查并添加日期行
                 first_line = self.app.editor.text.get("1.0", "1.end")
