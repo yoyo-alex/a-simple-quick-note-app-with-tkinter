@@ -164,6 +164,7 @@
   ('tkinter.constants', 'D:\\Python\\Lib\\tkinter\\constants.py', 'PYMODULE'),
   ('tkinter.dialog', 'D:\\Python\\Lib\\tkinter\\dialog.py', 'PYMODULE'),
   ('tkinter.filedialog', 'D:\\Python\\Lib\\tkinter\\filedialog.py', 'PYMODULE'),
+  ('tkinter.font', 'D:\\Python\\Lib\\tkinter\\font.py', 'PYMODULE'),
   ('tkinter.messagebox', 'D:\\Python\\Lib\\tkinter\\messagebox.py', 'PYMODULE'),
   ('tkinter.scrolledtext',
    'D:\\Python\\Lib\\tkinter\\scrolledtext.py',

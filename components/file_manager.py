@@ -67,7 +67,7 @@ class FileManager:
         # 重置状态
         self.app.editor.reset_modified()
         self.current_file = None
-        self.app.root.title("Fast Note - untitled")
+        self.app.root.title("Quick Note - untitled")
         self.app.status_bar.update(1, 1, 0)
         
         # 设置焦点
@@ -91,7 +91,7 @@ class FileManager:
                     self.app.editor.set_content(file.read())
                 
                 self.current_file = file_path
-                self.app.root.title(f"Fast Note - {os.path.basename(file_path)}")
+                self.app.root.title(f"Quick Note - {os.path.basename(file_path)}")
                 self.app.editor.reset_modified()
                 self.app.update_status()
                 
@@ -117,7 +117,7 @@ class FileManager:
                     file.write(content)
                 
                 self.app.editor.reset_modified()
-                self.app.root.title(f"Fast Note - {os.path.basename(self.current_file)}")
+                self.app.root.title(f"Quick Note - {os.path.basename(self.current_file)}")
                 return True
             except Exception as e:
                 messagebox.showerror("Error", f"Cannot save file: {str(e)}")
@@ -153,7 +153,7 @@ class FileManager:
                     file.write(content)
                 
                 self.current_file = file_path
-                self.app.root.title(f"Fast Note - {os.path.basename(file_path)}")
+                self.app.root.title(f"Quick Note - {os.path.basename(file_path)}")
                 self.app.editor.reset_modified()
                 
                 messagebox.showinfo("Save Success", f"File saved to:\n{file_path}")
@@ -166,7 +166,7 @@ class FileManager:
     def prompt_save(self):
         """保存提示对话框"""
         response = messagebox.askyesnocancel(
-            "Fast Note",
+            "Quick Note",
             "Do you want to save changes to this file?"
         )
         
